@@ -85,10 +85,7 @@ void xa_rar_ask (XArchive *archive)
 
 static gchar *xa_rar_password_str (XArchive *archive)
 {
-	if (archive->password)
-		return g_strconcat(" -p", archive->password, NULL);
-	else
-		return g_strdup("");
+	return xa_password_str(" -p", archive->password);
 }
 
 static void xa_rar_parse_output (gchar *line, XArchive *archive)

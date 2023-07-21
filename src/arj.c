@@ -54,10 +54,7 @@ void xa_arj_ask (XArchive *archive)
 
 static gchar *xa_arj_password_str (XArchive *archive)
 {
-	if (archive->password && archiver[archive->type].is_compressor)
-		return g_strconcat(" -g", archive->password, NULL);
-	else
-		return g_strdup("");
+	return xa_password_str(" -g", archive->password);
 }
 
 /*

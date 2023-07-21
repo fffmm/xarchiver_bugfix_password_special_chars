@@ -572,3 +572,16 @@ gchar *xa_make_full_path (const char *filename)
 
 	return path;
 }
+
+gchar *xa_password_str (const char* prefix, const gchar *password)
+{
+	if (password)
+	{
+		gchar *quoted_password = g_shell_quote(password);
+		gchar *password_str = g_strconcat(prefix, quoted_password, NULL);
+		g_free(quoted_password);
+		return password_str;
+	}
+	else
+		return g_strdup("");
+}

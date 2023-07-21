@@ -58,10 +58,7 @@ void xa_zip_ask (XArchive *archive)
 
 static gchar *xa_zip_password_str (XArchive *archive)
 {
-	if (archive->password)
-		return g_strconcat(" -P", archive->password, NULL);
-	else
-		return g_strdup("");
+	return xa_password_str(" -P", archive->password);
 }
 
 static void xa_zip_parse_output (gchar *line, XArchive *archive)

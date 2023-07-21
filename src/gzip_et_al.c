@@ -144,11 +144,7 @@ gchar *xa_gzip_et_al_check_zstd (const gchar *compressor, const gchar *decompres
 
 static gchar *xa_gzip_et_al_password_str (const gchar *password, XArchiveType type)
 {
-	if (password)
-		if (type == XARCHIVETYPE_LRZIP)
-			return g_strconcat(" --encrypt=", password, NULL);
-
-	return g_strdup("");
+	return xa_password_str(" --encrypt=", password);
 }
 
 gchar *xa_gzip_et_al_get_command (const gchar *program, gchar *workfile, gchar *archive, const gchar *password, XArchiveType type)
